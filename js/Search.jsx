@@ -1,12 +1,16 @@
 const React = require('react')
-const data = require('../public/data.json')
 const ShowCard = require('./ShowCard')
+const { object } = React.PropTypes
 
 const Search = React.createClass({
   getInitialState () {
     return {
       searchTerm: ''
     }
+  },
+  propTypes: {
+    shows: object,
+    route: object
   },
   handleSearchTermEvent (event) {
     this.setState({ searchTerm: event.target.value })
@@ -25,7 +29,8 @@ const Search = React.createClass({
           />
         </header>
         <div className='shows'>
-          {data.shows
+          {
+            this.props.route.shows
             .filter((show) => (
               `${show.title} ${show.description}`
                 .toUpperCase()
@@ -33,7 +38,8 @@ const Search = React.createClass({
             ))
             .map((show) => (
               <ShowCard {...show} key={show.imdbID} />
-            ))}
+            ))
+          }
         </div>
       </div>
     )
