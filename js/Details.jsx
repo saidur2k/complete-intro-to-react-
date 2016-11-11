@@ -15,7 +15,11 @@ class Details extends React.Component
         <p className="video-description">{description}</p>
       </div>
       <div className="video-container">
-        <iframe src={`https://www.youtube-nocookie.com/embed/${trailer}?rel=0&amp;controls=0&amp;showinfo=0`} frameBorder="0" allowFullScreen className="src"></iframe>
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${trailer}?rel=0&amp;controls=0&amp;showinfo=0`}
+          frameBorder='0'
+          allowFullScreen>
+        </iframe>
       </div>
     </div>
   }
