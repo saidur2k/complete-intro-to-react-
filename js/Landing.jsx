@@ -1,6 +1,7 @@
 const React = require('react')
 const { Link } = require('react-router')
 const { hashHistory } = require('react-router')
+const { connector } = require('./Store')
 
 class Landing extends React.Component {
   constructor (props) {
@@ -41,4 +42,4 @@ Landing.propTypes = {
   setSearchTerm: React.Component.func,
   searchTerm: React.Component.string
 }
-module.exports = Landing
+module.exports = connector(Landing)
